@@ -66,13 +66,13 @@ namespace applernnewwords
             //}
 
             int uk = 1;
-            try
-            {
+            //try
+            //{
                 using (MySqlConnection cn = new MySqlConnection(cs))
                 {
                     uk++;
 
-                    using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM words WHERE id = 8 ", cn))
+                    using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM words WHERE id ='" + uk + '"', cn))
                     {
 
                         cn.Open();
@@ -93,11 +93,11 @@ namespace applernnewwords
                     }
                 }
 
-            }
-            catch {
-                englbutton.Visibility = Visibility.Hidden;
-                MessageBox.Show("Ой, виникла якась проблема");
-            }
+            //}
+            //catch {
+            //    englbutton.Visibility = Visibility.Hidden;
+            //    MessageBox.Show("Ой, виникла якась проблема");
+            //}
 
         }
 
@@ -135,11 +135,11 @@ namespace applernnewwords
 
                     id++;
 
-                    using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM words WHERE id= 8", cn))
+                    using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM words WHERE id= '" + id +'"', cn))
                     {
 
                         cn.Open();
-
+                        
                         using (MySqlDataReader dataReader = cmd.ExecuteReader())
                         {
 
